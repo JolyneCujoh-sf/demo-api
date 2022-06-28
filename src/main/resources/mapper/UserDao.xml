@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.api.db.dao.UserDao">
+	<select id="searchUserByOpenId" parameterType="String" resultType="long">
+		SELECT COUNT(*) FROM test.user
+		WHERE "open_id"='${openId}'
+	</select>
+	<insert id="register"  parameterType="HashMap">
+		UPSERT INTO test.user("id","open_id","nickname","sex","tel","create_time") 
+        VALUES(NEXT VALUE FOR test.user_sequence ,'${openId}','${nickname}','${sex}','${tel}',NOW())
+	</insert>
+	<select id="searchIdByOpenId" parameterType="String" resultType="int">
+		SELECT "id" FROM test.user WHERE "open_id"='${openId}'
+	</select>
+	<select id="searchUserByTel" parameterType="String" resultType="long">
+		SELECT COUNT(*) FROM test.user 
+		WHERE "tel"='${tel}'
+	</select>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.api.db.dao.TripDao">
+	<select id="searchUserTrip" parameterType="HashMap" resultType="HashMap">
+		SELECT "province", "city", "district", "address"
+		FROM test.trip
+		WHERE "tel"='${tel}' AND "create_time" BETWEEN TO_DATE('${startDate}') AND TO_DATE('${endDate}')
+	</select>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.example.demo.api.db.dao.CityDao">
+	<select id="searchCodeByCity" parameterType="HashMap" resultType="String">
+		SELECT "code" FROM test.city
+		Where "city"='${city}'
+	</select>
+</mapper>
